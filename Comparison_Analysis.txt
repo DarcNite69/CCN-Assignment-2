@@ -1,0 +1,56 @@
+1. Latency Comparison
+Compare the average round-trip time (RTT) for TCP and UDP:
+
+UDP generally shows a lower average RTT compared to TCP.
+This is because UDP is connectionless and does not involve the overhead of connection setup, acknowledgments, or congestion control.
+
+Why does UDP have lower latency than TCP?
+
+UDP has lower latency because it transmits packets without establishing a connection, does not wait for acknowledgments, and skips retransmission and congestion control mechanisms.
+In contrast, TCP must perform a three-way handshake before data transmission, and it adds delays for packet acknowledgment, reordering, and retransmission, increasing overall RTT.
+
+2. Reliability and Packet Loss
+What happens when some UDP packets are lost?
+
+When UDP packets are lost, they are simply dropped and not retransmitted.
+The application may experience missing or corrupted data unless it implements its own recovery mechanisms.
+
+Why does TCP ensure that all packets arrive correctly?
+
+TCP includes built-in reliability features like sequencing, acknowledgments, and automatic retransmission of lost packets.
+This ensures that all data is received in the correct order and without errors, which is essential for applications like file transfer or web browsing.
+
+3. Throughput Analysis
+Which protocol is faster for bulk data transfer?
+
+TCP is generally more suitable and faster for bulk data transfer because it guarantees reliable delivery, which is critical for large datasets.
+Although UDP can achieve higher raw throughput in low-loss networks, TCP's reliability ensures all data is transferred successfully.
+
+Why does TCP introduce overhead due to acknowledgments?
+
+TCP adds overhead because it requires acknowledgment packets for every segment or group of segments sent.
+This mechanism helps with error checking and flow control but reduces the efficiency compared to UDP, especially for small or time-sensitive transmissions.
+
+4. Use Cases
+When should an application use TCP instead of UDP?
+
+Applications should use TCP when data integrity, reliability, and order of delivery are critical.
+This includes scenarios where lost or out-of-order data would cause failure or confusion.
+
+Give real-world examples:
+
+TCP:
+
+Web browsing (HTTP/HTTPS)
+
+Email (SMTP, IMAP, POP3)
+
+File transfer (FTP, SFTP)
+
+UDP:
+
+Voice over IP (VoIP)
+
+Online gaming
+
+Video streaming (e.g., IPTV, where latency is more critical than minor packet loss)
